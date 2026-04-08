@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+        }
+
+        .container {
+            width: 400px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>❤️ Heart attack cheak(prediction)</h2>
+
+    <form action="/predict" method="post">
+
+        
+        <input type="number" name="age" placeholder="Age (1-120)" min="1" max="120" required>
+
+        
+        <select name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+        </select>
+
+        >
+        <input type="number" name="height" placeholder="Height (100-250 cm)" min="100" max="250" required>
+
+        
+        <input type="number" name="weight" placeholder="Weight (30-200 kg)" min="30" max="200" required>
+
+        
+        <input type="number" name="ap_hi" placeholder="Systolic BP (80-200)" min="80" max="200" required>
+        <input type="number" name="ap_lo" placeholder="Diastolic BP (50-150)" min="50" max="150" required>
+
+        
+        <select name="cholesterol" required>
+            <option value="">Cholesterol Level</option>
+            <option value="1">Normal</option>
+            <option value="2">Above Normal</option>
+            <option value="3">Well Above Normal</option>
+        </select>
+
+        
+        <select name="gluc" required>
+            <option value="">Glucose Level</option>
+            <option value="1">Normal</option>
+            <option value="2">Above Normal</option>
+            <option value="3">Well Above Normal</option>
+        </select>
+
+       
+        <select name="smoke" required>
+            <option value="">Smoking</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <select name="alco" required>
+            <option value="">Alcohol</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <select name="active" required>
+            <option value="">Physically Active</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <div class="result">
+        {{ prediction_text }}
+    </div>
+
+</div>
+
+</body>
+</html>
